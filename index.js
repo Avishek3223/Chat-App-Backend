@@ -12,8 +12,9 @@ const ws = require('ws')
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: 'https://chatter-box23.netlify.app/',
+    origin: 'https://chatter-box23.netlify.app',
 }));
+
 
 app.use(express.json());
 app.use(cookieParser())
