@@ -12,13 +12,13 @@ const ws = require('ws')
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: 'https://main--chatter-box23.netlify.app',
+    origin: 'https://chatter-box23.netlify.app/',
 }));
 
 app.use(express.json());
 app.use(cookieParser())
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log('MongoDB connected'))
@@ -154,7 +154,7 @@ wss.on('connection', (connection, req) => {
 
     connection.on('message', async (message) => {
         const messageData = JSON.parse(message.toString());
-        const { recipient, text } = messageData;
+        const { recipient, text,file } = messageData;
         if (recipient && text) {
             const messageDOC = await Message.create({
                 sender: connection.userId,
