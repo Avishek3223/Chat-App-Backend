@@ -12,7 +12,7 @@ const ws = require('ws')
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173',
+    origin: 'https://main--chatter-box23.netlify.app/',
 }));
 
 app.use(express.json());
