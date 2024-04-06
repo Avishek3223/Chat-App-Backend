@@ -127,11 +127,9 @@ const server = app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
 
-app.post('/logout', (req, res) => {
-    res.clearCookie('token'); 
-    res.status(200).json({ message: 'Logged out successfully' });
-});
-
+app.post('/logout', (req,res) => {
+    res.cookie('token', '', {sameSite:'none', secure:true}).json('ok');
+  });
 
 //read the username and id from the cookie for this connection
 const wss = new ws.WebSocketServer({ server });
