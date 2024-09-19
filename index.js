@@ -13,7 +13,7 @@ const { isValidObjectId } = mongoose;
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: 'https://chatter-box23.netlify.app',
+    origin: true,
 }));
 
 app.use(express.json());
