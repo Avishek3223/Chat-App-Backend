@@ -19,7 +19,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log('MongoDB connected'))
