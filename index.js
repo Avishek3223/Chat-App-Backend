@@ -106,7 +106,7 @@ app.post('/login', async (req, res) => {
 
 app.post('/register', async (req, res) => {
     const { userName, password } = req.body;
-    const hashedPassword = bcrypt.hashSync(password, bcryptSalt);
+    const hashedPassword = bcrypt.hashSync(password, bcryptSalt);  // Correctly hashing password
     try {
         const createdUser = await User.create({ userName, password: hashedPassword });
         console.log("User created:", createdUser);
